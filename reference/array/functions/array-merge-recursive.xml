@@ -10,7 +10,8 @@
   &reftitle.description;
   <methodsynopsis>
    <type>array</type><methodname>array_merge_recursive</methodname>
-   <methodparam rep="repeat"><type>array</type><parameter>arrays</parameter></methodparam>
+   <methodparam><type>array</type><parameter>array1</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>...</parameter></methodparam>
   </methodsynopsis>
   <para>
    <function>array_merge_recursive</function>
@@ -32,9 +33,18 @@
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>arrays</parameter></term>
+     <term><parameter>array1</parameter></term>
      <listitem>
       <para>
+       Array iniziale da fondere.
+      </para>
+     </listitem>
+    </varlistentry>
+    <varlistentry>
+     <term><parameter>...</parameter></term>
+     <listitem>
+      <para>
+       Lista variabile di array da fondere ricorsivamente.
        Lista variabile di array da fondere ricorsivamente.
       </para>
      </listitem>
@@ -83,9 +93,13 @@
   <para>
    <example>
     <title>Esempio di <function>array_merge_recursive</function></title>
+    <title>Esempio di <function>array_merge_recursive</function></title>
     <programlisting role="php">
 <![CDATA[
 <?php
+$ar1 = array("colore" => array ("preferito" => "rosso"), 5);
+$ar2 = array(10, "colore" => array ("preferito" => "verde", "blu"));
+$risultato = array_merge_recursive($ar1, $ar2);
 $ar1 = array("colore" => array ("preferito" => "rosso"), 5);
 $ar2 = array(10, "colore" => array ("preferito" => "verde", "blu"));
 $risultato = array_merge_recursive($ar1, $ar2);
@@ -99,13 +113,18 @@ print_r($result);
 Array
 (
     [colore] => Array
+    [colore] => Array
         (
+            [preferito] => Array
             [preferito] => Array
                 (
                     [0] => rosso
                     [1] => verde
+                    [0] => rosso
+                    [1] => verde
                 )
 
+            [0] => blu
             [0] => blu
         )
 
@@ -123,7 +142,6 @@ Array
   <para>
    <simplelist>
     <member><function>array_merge</function></member>
-    <member><function>array_replace_recursive</function></member>
    </simplelist>
   </para>
  </refsect1>

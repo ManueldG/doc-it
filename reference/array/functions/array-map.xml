@@ -11,9 +11,9 @@
   &reftitle.description;
   <methodsynopsis>
    <type>array</type><methodname>array_map</methodname>
-   <methodparam><type class="union"><type>callable</type><type>null</type></type><parameter>callback</parameter></methodparam>
-   <methodparam><type>array</type><parameter>array</parameter></methodparam>
-   <methodparam rep="repeat"><type>array</type><parameter>arrays</parameter></methodparam>
+   <methodparam><type>callable</type><parameter>callback</parameter></methodparam>
+   <methodparam><type>array</type><parameter>array1</parameter></methodparam>
+   <methodparam choice="opt"><type>array</type><parameter>...</parameter></methodparam>
   </methodsynopsis>
   <para>
    <function>array_map</function> restituisce un &array; che contiene
@@ -54,15 +54,16 @@
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>array</parameter></term>
+     <term><parameter>array1</parameter></term>
      <listitem>
       <para>
+       Un array su cui eseguire la funzione <parameter>callback</parameter>.
        Un array su cui eseguire la funzione <parameter>callback</parameter>.
       </para>
      </listitem>
     </varlistentry>
     <varlistentry>
-     <term><parameter>arrays</parameter></term>
+     <term><parameter>...</parameter></term>
      <listitem>
       <para>
        Array di argomenti supplementari da eseguire nella
@@ -86,30 +87,17 @@
    L'array restituito conserverà le chiavi del parametro array se e solo
    se viene passato esattamente un array. Se viene passato più di un array, l'array
    restituito avrà chiavi intere sequenziali.
+   L'array restituito conserverà le chiavi del parametro array se e solo
+   se viene passato esattamente un array. Se viene passato più di un array, l'array
+   restituito avrà chiavi intere sequenziali.
   </para>
- </refsect1>
-
- <refsect1 role="changelog">
-  &reftitle.changelog;
-  <informaltable>
-   <tgroup cols="2">
-    <thead>
-     <row>
-      <entry>&Version;</entry>
-      <entry>&Description;</entry>
-     </row>
-    </thead>
-    <tbody>
-     &array.changelog.by-ref;
-    </tbody>
-   </tgroup>
-  </informaltable>
  </refsect1>
 
  <refsect1 role="examples">
   &reftitle.examples;
   <para>
    <example>
+    <title>Esempio di <function>array_map</function></title>
     <title>Esempio di <function>array_map</function></title>
     <programlisting role="php">
 <![CDATA[
@@ -126,6 +114,7 @@ print_r($b);
 ]]>
     </programlisting>
     <para>
+     Questo fa sì che <varname>$b</varname> abbia:
      Questo fa sì che <varname>$b</varname> abbia:
     </para>
     <screen>
@@ -145,10 +134,11 @@ Array
   <para>
    <example>
     <title><function>array_map</function> usando una funzione lambda (a partire da PHP 5.3.0)</title>
+    <title><function>array_map</function> usando una funzione lambda (a partire da PHP 5.3.0)</title>
     <programlisting role="php">
 <![CDATA[
 <?php
-$func = function(int $value): int {
+$func = function($value) {
     return $value * 2;
 };
 
@@ -178,15 +168,16 @@ Array
   <para>
    <example>
     <title><function>array_map</function> - usando più array</title>
+    <title><function>array_map</function> - usando più array</title>
     <programlisting role="php">
 <![CDATA[
 <?php
-function show_Spanish(int $n, string $m): string
+function show_Spanish($n, $m)
 {
     return "Il numero {$n} si dice {$m} in Spagnolo";
 }
 
-function map_Spanish(int $n, string $m): array
+function map_Spanish($n, $m)
 {
     return [$n => $m];
 }
@@ -206,6 +197,7 @@ print_r($d);
     <screen>
 <![CDATA[
 // stampa di $c
+// stampa di $c
 Array
 (
     [0] => Il numero 1 è chiamato uno in spagnolo
@@ -213,8 +205,14 @@ Array
     [2] => Il numero 3 è chiamato tres in spagnolo
     [3] => Il numero 4 è chiamato cuatro in spagnolo
     [4] => Il numero 5 è chiamato cinco in spagnolo
+    [0] => Il numero 1 è chiamato uno in spagnolo
+    [1] => Il numero 2 è chiamato dos in spagnolo
+    [2] => Il numero 3 è chiamato tres in spagnolo
+    [3] => Il numero 4 è chiamato cuatro in spagnolo
+    [4] => Il numero 5 è chiamato cinco in spagnolo
 )
 
+// stampa di $d
 // stampa di $d
 Array
 (
@@ -254,14 +252,23 @@ Array
    corrispondenti.
    Se gli array sono di lunghezza diversa, quelli più corti verranno estesi con elementi
    vuoti per uguagliare la lunghezza del più lungo.
+   Di solito quando si usano due o più array, questi dovrebbero essere di uguale lunghezza
+   in quanto la funzione di callback viene applicata in parallelo agli elementi
+   corrispondenti.
+   Se gli array sono di lunghezza diversa, quelli più corti verranno estesi con elementi
+   vuoti per uguagliare la lunghezza del più lungo.
   </para>
   <para>
+   Un uso interessante di questa funzione è quello di costruire un array di array,
+   cosa che può essere facilmente ottenuta usando &null;
+   come nome della funzione callback
    Un uso interessante di questa funzione è quello di costruire un array di array,
    cosa che può essere facilmente ottenuta usando &null;
    come nome della funzione callback
   </para>
   <para>
    <example>
+    <title>Esecuzione di un'operazione zip di array</title>
     <title>Esecuzione di un'operazione zip di array</title>
     <programlisting role="php">
 <![CDATA[
@@ -326,6 +333,8 @@ Array
     <title>
      <parameter>callback</parameter> &null; con solo
      <parameter>array1</parameter>
+     <parameter>callback</parameter> &null; con solo
+     <parameter>array1</parameter>
     </title>
     <programlisting role="php">
 <![CDATA[
@@ -352,6 +361,7 @@ array(3) {
   </para>
   <para>
    <example>
+    <title><function>array_map</function> - con chiavi stringa</title>
     <title><function>array_map</function> - con chiavi stringa</title>
     <programlisting role="php">
 <![CDATA[
@@ -457,6 +467,7 @@ array(3) {
   </para>
  </refsect1>
 </refentry>
+
 <!-- Keep this comment at the end of the file
 Local variables:
 mode: sgml
