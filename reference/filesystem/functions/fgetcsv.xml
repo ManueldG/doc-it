@@ -203,7 +203,7 @@ $row = 1;
 if (($handle = fopen("test.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $num = count($data);
-        echo "<p> $num campi sulla riga $row: <br /></p>\n";
+        echo "<p> $num fields in line $row: <br /></p>\n";
         $row++;
         for ($c=0; $c < $num; $c++) {
             echo $data[$c] . "<br />\n";
@@ -213,27 +213,20 @@ if (($handle = fopen("test.csv", "r")) !== FALSE) {
 }
 ?>
 ]]>
-    </programlisting>
-   </example>
-  </para>
- </refsect1>
+      </programlisting>
+     </example>
+    </para>
+    <para>
+     <function>fgetcsv</function> è diventata binary safe dal PHP 4.3.5
+    </para>
+    &note.line-endings;
+    <para>
+     Vedere anche <function>explode</function>, <function>file</function>,
+     <function>pack</function> e <function>fputcsv</function>.
+    </para>
+   </refsect1>
+  </refentry>
 
- <refsect1 role="seealso">
-  &reftitle.seealso;
-  <simplelist>
-   <member><function>fputcsv</function></member>
-   <member><function>str_getcsv</function></member>
-   <member><methodname>SplFileObject::fgetcsv</methodname></member>
-   <member><methodname>SplFileObject::fputcsv</methodname></member>
-   <member><methodname>SplFileObject::setCsvControl</methodname></member>
-   <member><methodname>SplFileObject::getCsvControl</methodname></member>
-   <member><function>explode</function></member>
-   <member><function>file</function></member>
-   <member><function>pack</function></member>
-  </simplelist>
- </refsect1>
-
-</refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
 mode: sgml

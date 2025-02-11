@@ -11,7 +11,7 @@
   &reftitle.description;
   <methodsynopsis>
    <type>string</type><methodname>addslashes</methodname>
-   <methodparam><type>string</type><parameter>string</parameter></methodparam>
+   <methodparam><type>string</type><parameter>str</parameter></methodparam>
   </methodsynopsis>
   <para>
    La funzione restituisce una stringa con il carattere backslash anteposto ai caratteri
@@ -49,7 +49,7 @@ eval("echo '" . addslashes($str) . "';");
   <para>
    <variablelist>
     <varlistentry>
-     <term><parameter>string</parameter></term>
+     <term><parameter>str</parameter></term>
      <listitem>
       <para>
        La stringa su cui fare l'escape.

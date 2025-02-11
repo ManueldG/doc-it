@@ -121,7 +121,7 @@ if (is_writable($filename)) {
 
     echo "Successo, scritto ($somecontent) nel file ($filename)";
 
-    fclose($fp);
+    fclose($handle);
 
 } else {
     echo "Il file $filename non è scrivibile";
