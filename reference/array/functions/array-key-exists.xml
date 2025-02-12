@@ -12,7 +12,6 @@
   <methodsynopsis>
    <type>bool</type><methodname>array_key_exists</methodname>
    <methodparam><type class="union"><type>string</type><type>int</type></type><parameter>key</parameter></methodparam>
-   <methodparam><type class="union"><type>string</type><type>int</type></type><parameter>key</parameter></methodparam>
    <methodparam><type>array</type><parameter>array</parameter></methodparam>
   </methodsynopsis>
   <para>
@@ -40,7 +39,6 @@
      <listitem>
       <para>
        Un array con chiavi da controllare.
-       Un array con chiavi da controllare.
       </para>
      </listitem>
     </varlistentry>
@@ -55,8 +53,6 @@
   </para>
   <note>
    <para>
-    <function>array_key_exists</function> cercherà le chiavi solo nella prima dimensione.
-    Le chiavi annidate negli array multidimensionali non verranno trovate.
     <function>array_key_exists</function> cercherà le chiavi solo nella prima dimensione.
     Le chiavi annidate negli array multidimensionali non verranno trovate.
    </para>
@@ -92,7 +88,6 @@
   &reftitle.examples;
   <para>
    <example>
-    <title>Esempio di <function>array_key_exists</function></title>
     <title>Esempio di <function>array_key_exists</function></title>
     <programlisting role="php">
 <![CDATA[
@@ -148,8 +143,6 @@ array_key_exists('primo', $search_array);
      e rimosso a partire da PHP 8.0.0.
     </para>
     <para>
-     Per verificare se esiste una proprietà in un oggetto,
-     dovrebbe essere utilizzata <function>property_exists</function>.
      Per verificare se esiste una proprietà in un oggetto,
      dovrebbe essere utilizzata <function>property_exists</function>.
     </para>
