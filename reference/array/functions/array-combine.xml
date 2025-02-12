@@ -5,7 +5,6 @@
  <refnamediv>
   <refname>array_combine</refname>
   <refpurpose>Crea un'array utilizzando un'array per le chiavi ed un altro per i suoi valori</refpurpose>
-  <refpurpose>Crea un'array utilizzando un'array per le chiavi ed un altro per i suoi valori</refpurpose>
  </refnamediv>
  
  <refsect1 role="description">
@@ -16,9 +15,6 @@
    <methodparam><type>array</type><parameter>values</parameter></methodparam>
   </methodsynopsis>
   <para>
-   Crea un <type>array</type> utilizzando i valori dall'array
-   <parameter>keys</parameter> per le chiavi e i valori dall'array
-   <parameter>values</parameter> per i valori corrispondenti.
    Crea un <type>array</type> utilizzando i valori dall'array
    <parameter>keys</parameter> per le chiavi e i valori dall'array
    <parameter>values</parameter> per i valori corrispondenti.
@@ -44,7 +40,6 @@
      <term><parameter>values</parameter></term>
      <listitem>
       <para>
-       Un <type>Array</type> di valori da utilizzare
        Un <type>Array</type> di valori da utilizzare
       </para>
      </listitem>
@@ -102,7 +97,6 @@
   <para>
    <example>
     <title>Un semplice esempio per <function>array_combine</function></title>
-    <title>Un semplice esempio per <function>array_combine</function></title>
     <programlisting role="php">
 <![CDATA[
 <?php
@@ -118,7 +112,7 @@ print_r($c);
     <screen>
 <![CDATA[
 Array
-(
+( 
     [green]  => avocado
     [red]    => apple
     [yellow] => banana
