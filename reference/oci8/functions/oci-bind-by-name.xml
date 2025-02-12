@@ -581,21 +581,14 @@ $sql = "INSERT INTO mytab (id, name) VALUES(:id_bv, :name_bv)
 $ins_stid = oci_parse($conn, $sql);
 
 $rowid = oci_new_descriptor($conn, OCI_D_ROWID);
+oci_bind_by_name($ins_stid, ":id_bv",   $id,    10);
+oci_bind_by_name($ins_stid, ":name_bv", $name,  32);
+oci_bind_by_name($ins_stid, ":rid",     $rowid, -1, OCI_B_ROWID);
 
-oci_bind_by_name($stmt, ":empno", $empno, 32);
-oci_bind_by_name($stmt, ":ename", $ename, 32);
-oci_bind_by_name($stmt, ":rid",   $rowid, -1, OCI_B_ROWID);
-
-$update = oci_parse($conn, "
-                            UPDATE
-                                  emp 
-                               SET 
-                                  sal = :sal 
-                             WHERE 
-                                  ROWID = :rid
-                             ");
-oci_bind_by_name($update, ":rid", $rowid, -1, OCI_B_ROWID);
-oci_bind_by_name($update, ":sal", $sal,   32);
+$sql = "UPDATE mytab SET salary = :salary WHERE ROWID = :rid";
+$upd_stid = oci_parse($conn, $sql);
+oci_bind_by_name($upd_stid, ":rid", $rowid, -1, OCI_B_ROWID);
+oci_bind_by_name($upd_stid, ":salary", $salary,   32);
 
 // id e nomi da inserire
 $data = array(1111 => "Larry",
@@ -612,9 +605,8 @@ foreach ($data as $id => $name) {
 }
 
 $rowid->free();
-
-oci_free_statement($update);
-oci_free_statement($stmt);
+oci_free_statement($upd_stid);
+oci_free_statement($ins_stid);
 
 // Mostra le nuove righe
 $stid = oci_parse($conn, "SELECT * FROM mytab");
@@ -669,6 +661,7 @@ print "$r\n";   // prints 24
 
 oci_free_statement($stid);
 oci_close($conn);
+
 ?>
 ]]>
     </programlisting>
@@ -778,16 +771,26 @@ print '</table>';
     <programlisting role="php">
 <![CDATA[
 <?php
-    $connection = oci_connect('apelsin','kanistra');
-    $query = "INSERT INTO test_table VALUES(:id, 'Qui ci sono degli spazi      ')";
 
-    $statement = oci_parse($query);
-    oci_bind_by_name($statement, ":id", 1);
-    oci_execute($statement);
-    /*
-     Questo codice aggiunge 'Qui ci sono degli spazi      ', mantenendo
-     gli spazi 
-    */
+$conn = oci_connect('hr', 'welcome', 'localhost/XE');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message']), E_USER_ERROR);
+}
+
+$plsql = 
+  "begin
+    :output1 := true;
+    :output2 := false;
+   end;";
+
+$s = oci_parse($c, $plsql);
+oci_bind_by_name($s, ':output1', $output1, -1, OCI_B_BOL);
+oci_bind_by_name($s, ':output2', $output2, -1, OCI_B_BOL);
+oci_execute($s);
+var_dump($output1);  // true
+var_dump($output2);  // false
+
 ?>
 ]]>
    </programlisting>
