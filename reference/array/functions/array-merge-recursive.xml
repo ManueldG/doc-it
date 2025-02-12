@@ -36,7 +36,6 @@
      <listitem>
       <para>
        Lista variabile di array da fondere ricorsivamente.
-       Lista variabile di array da fondere ricorsivamente.
       </para>
      </listitem>
     </varlistentry>
@@ -49,8 +48,6 @@
   <para>
    Un array di valori risultante dalla fusione degli argomenti.
    Se usata senza nessun argomento, ritorna un &array; vuoto.
-   An array of values resulted from merging the arguments together.
-   If called without any arguments, returns an empty &array;.
   </para>
  </refsect1>
 
@@ -83,7 +80,6 @@
   &reftitle.examples;
   <para>
    <example>
-    <title>Esempio di <function>array_merge_recursive</function></title>
     <title>Esempio di <function>array_merge_recursive</function></title>
     <programlisting role="php">
 <![CDATA[
