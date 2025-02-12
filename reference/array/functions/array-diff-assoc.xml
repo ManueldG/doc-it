@@ -5,7 +5,6 @@
  <refnamediv>
   <refname>array_diff_assoc</refname>
   <refpurpose>Calcola la differenza tra array con un ulteriore controllo sull'indice</refpurpose>
-  <refpurpose>Calcola la differenza tra array con un ulteriore controllo sull'indice</refpurpose>
  </refnamediv>
  
  <refsect1 role="description">
@@ -32,15 +31,6 @@
      <listitem>
       <para>
        The array to compare from
-      </para>
-     </listitem>
-    </varlistentry>
-
-    <varlistentry>
-     <term><parameter>arrays</parameter></term>
-     <listitem>
-      <para>
-       Arrays to compare against
       </para>
      </listitem>
     </varlistentry>
@@ -90,13 +80,7 @@
   <para>
    <example>
     <title>Esempio di <function>array_diff_assoc</function></title>
-    <title>Esempio di <function>array_diff_assoc</function></title>
     <para>
-     In questo esempio si vede che la coppia <literal>"a" =&gt; "verde"</literal>
-     è presente in entrambi gli array e quindi non è nel risultato della
-     funzione. Invece, la coppia <literal>0 =&gt; "rosso"</literal> 
-     è nel risultato perché nel secondo argomento <literal>"red"</literal>
-     ha come chiave <literal>1</literal>. 
      In questo esempio si vede che la coppia <literal>"a" =&gt; "verde"</literal>
      è presente in entrambi gli array e quindi non è nel risultato della
      funzione. Invece, la coppia <literal>0 =&gt; "rosso"</literal> 
@@ -133,7 +117,6 @@ Array
   </para>
   <para>
    <example>
-    <title>Esempio di <function>array_diff_assoc</function></title>
     <title>Esempio di <function>array_diff_assoc</function></title>
     <para>
      I due valori delle coppie <emphasis>chiave =&gt; valore</emphasis> sono
@@ -177,8 +160,6 @@ Array
   </note>
   <note>
    <simpara>
-    Assicurarsi di passare gli argomenti nell'ordine corretto quando si confrontano array
-    simili con più chiavi. Il nuovo array dovrebbe essere il primo nella lista.
     Assicurarsi di passare gli argomenti nell'ordine corretto quando si confrontano array
     simili con più chiavi. Il nuovo array dovrebbe essere il primo nella lista.
    </simpara>
