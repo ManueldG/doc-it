@@ -30,7 +30,6 @@
      <listitem>
       <para>
        L'array di valori da contare
-       L'array di valori da contare
       </para>
      </listitem>
     </varlistentry>
@@ -52,8 +51,6 @@
   <para>
    Lancia un <constant>E_WARNING</constant> per ogni elemento che non è
    <type>string</type> o <type>int</type>.
-   Lancia un <constant>E_WARNING</constant> per ogni elemento che non è
-   <type>string</type> o <type>int</type>.
   </para>
  </refsect1>
 
@@ -61,7 +58,6 @@
   &reftitle.examples;
   <para>
    <example>
-    <title>Esempio di <function>array_count_values</function></title>
     <title>Esempio di <function>array_count_values</function></title>
     <programlisting role="php">
 <![CDATA[
