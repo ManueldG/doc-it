@@ -57,7 +57,7 @@
     </row>
     <row>
      <entry><link linkend="ini.assert.exception">assert.exception</link></entry>
-     <entry>"0"</entry>
+     <entry>"1"</entry>
      <entry><constant>INI_ALL</constant></entry>
      <entry>
       Prima di PHP 8.0.0, il valore predefinito è <literal>"0"</literal>.
@@ -86,22 +86,22 @@
      <entry><link linkend="ini.max-input-nesting-level">max_input_nesting_level</link></entry>
      <entry>"64"</entry>
      <entry><constant>INI_PERDIR</constant></entry>
-     <entry>Disponibile da PHP 5.2.3.</entry>
+     <entry></entry>
     </row>
     <row>
      <entry><link linkend="ini.max-input-vars">max_input_vars</link></entry>
      <entry>1000</entry>
      <entry><constant>INI_PERDIR</constant></entry>
-     <entry>Disponibile da PHP 5.3.9.</entry>
+     <entry></entry>
     </row>
     <row>
-     <entry><link linkend="ini.magic-quotes-gpc">magic_quotes_gpc</link></entry>
+     <entry><link linkend="ini.zend.enable-gc">zend.enable_gc</link></entry>
      <entry>"1"</entry>
-     <entry><constant>INI_PERDIR</constant></entry>
-     <entry>Rimosso in PHP 5.4.0.</entry>
+     <entry><constant>INI_ALL</constant></entry>
+     <entry></entry>
     </row>
     <row>
-     <entry><link linkend="ini.magic-quotes-runtime">magic_quotes_runtime</link></entry>
+     <entry><link linkend="ini.zend.max-allowed-stack-size">zend.max_allowed_stack_size</link></entry>
      <entry>"0"</entry>
      <entry><constant>INI_SYSTEM</constant></entry>
      <entry>Disponibile da PHP 8.3.0.</entry>
@@ -139,6 +139,7 @@
       Dovrebbe essere invece utilizzato <link linkend="ini.zend.assertions">zend.assertions</link>
       per controllare il comportamento di <function>assert</function>.
      </para>
+     &warn.deprecated.feature-8-3-0;
     </listitem>
    </varlistentry>
 
@@ -151,6 +152,7 @@
      <para>
       Termina uno script a fronte di un assert fallito.
      </para>
+     &warn.deprecated.feature-8-3-0;
     </listitem>
    </varlistentry>
 
@@ -163,6 +165,7 @@
      <para>
       Invia un PHP warning per ogni asserzione fallita.
      </para>
+     &warn.deprecated.feature-8-3-0;
     </listitem>
    </varlistentry>
 
@@ -175,6 +178,7 @@
      <para>
       Funzione utente da richiamare a fronte di un assert fallito.
      </para>
+     &warn.deprecated.feature-8-3-0;
     </listitem>
    </varlistentry>
 
@@ -184,6 +188,7 @@
      <type>bool</type>
     </term>
     <listitem>
+     &warn.feature.removed-8-0-0;
      <para>
       Utilizzare questo parametro di <function>error_reporting</function> durante 
       l'analisi dei un'asserzione. Se è abilitato, non sono visualizzati gli errori
@@ -203,6 +208,7 @@
       Emette un'eccezione <classname>AssertionError</classname> per l'assert
       fallito.
      </para>
+     &warn.deprecated.feature-8-3-0;
     </listitem>
    </varlistentry>
 
@@ -307,11 +313,10 @@
    
    <varlistentry xml:id="ini.zend.enable-gc">
     <term>
-     <parameter>magic_quotes_gpc</parameter>
+     <parameter>zend.enable_gc</parameter>
      <type>bool</type>
     </term>
-     <listitem>
-     &warn.deprecated.feature-5-3-0.removed-5-4-0;
+    <listitem>
      <para>
       Abilita o disabilita il collezionista di riferimento circolare.
      </para>
@@ -380,13 +385,12 @@
     </listitem>
    </varlistentry>
 
-   <varlistentry xml:id="ini.magic-quotes-runtime">
+   <varlistentry xml:id="ini.zend.reserved-stack-size">
     <term>
-     <parameter>magic_quotes_runtime</parameter>
-     <type>bool</type>
+     <parameter>zend.reserved_stack_size</parameter>
+     <type>int</type>
     </term>
     <listitem>
-     &warn.deprecated.feature-5-3-0.removed-5-4-0;
      <para>
       La dimensione dello stack riservato, in byte.
       Questa viene sottratta dalla
@@ -407,10 +411,10 @@
     </listitem>
    </varlistentry>
 
-   <varlistentry xml:id="ini.zend.enable-gc">
+   <varlistentry xml:id="ini.fiber.stack-size">
     <term>
-     <parameter>zend.enable_gc</parameter>
-     <type>bool</type>
+     <parameter>fiber.stack_size</parameter>
+     <type>int</type>
     </term>
     <listitem>
      <para>
@@ -423,7 +427,6 @@
      </para>
     </listitem>
    </varlistentry>
-
   </variablelist>
  </para>
 </section>
