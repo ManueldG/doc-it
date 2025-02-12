@@ -133,37 +133,39 @@
     <programlisting role="php">
 <![CDATA[
 <?php
-function dispari($var) 
+function odd($var)
 {
-    return($var % 2 == 1);
+    // returns whether the input integer is odd
+    return $var & 1;
 }
 
-function pari($var) 
+function even($var)
 {
-    return($var % 2 == 0);
+    // returns whether the input integer is even
+    return !($var & 1);
 }
 
-$array1 = array("a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5);
-$array2 = array(6, 7, 8, 9, 10, 11, 12);
+$array1 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+$array2 = [6, 7, 8, 9, 10, 11, 12];
 
-echo "Dispari :\n";
-print_r(array_filter($array1, "dispari");
-echo "Pari :\n";
-print_r(array_filter($array2, "pari");
+echo "Odd :\n";
+print_r(array_filter($array1, "odd"));
+echo "Even:\n";
+print_r(array_filter($array2, "even"));
 ?>
 ]]>
-      </programlisting>
-      &example.outputs;
-      <screen role="php">
+    </programlisting>
+    &example.outputs;
+    <screen role="php">
 <![CDATA[
-Dispari :
+Odd :
 Array
 (
     [a] => 1
     [c] => 3
     [e] => 5
 )
-Pari:
+Even:
 Array
 (
     [0] => 6
@@ -181,24 +183,26 @@ Array
 <![CDATA[
 <?php
 
-$entry = array(
-             0 => 'pippo',
-             1 => false,
-             2 => -1,
-             3 => null,
-             4 => ''
-          );
+$entry = [
+    0 => 'foo',
+    1 => false,
+    2 => -1,
+    3 => null,
+    4 => '',
+    5 => '0',
+    6 => 0,
+];
 
 print_r(array_filter($entry));
 ?>
 ]]>
-      </programlisting>
-      &example.outputs;
-      <screen>
+    </programlisting>
+    &example.outputs;
+    <screen>
 <![CDATA[
 Array
 (
-    [0] => pippo
+    [0] => foo
     [2] => -1
 )
 ]]>

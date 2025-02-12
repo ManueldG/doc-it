@@ -16,7 +16,7 @@
   </methodsynopsis>
   <para>
    <function>array_replace_recursive</function>
-    sostituisce i valori dell'<parameter>array</parameter> con gli stessi
+    Sostituisce i valori dell'<parameter>array</parameter> con gli stessi
     valori da tutti i seguenti array. Se una chiave del primo array esiste 
     nel secondo array, il suo valore verrà sostituito dal valore del 
     secondo array. Se la chiave esiste nel secondo array e non il primo, 

@@ -31,7 +31,7 @@
      <term><parameter>array</parameter></term>
      <listitem>
       <para>
-       L'array da confrontare
+       The array to compare from
       </para>
      </listitem>
     </varlistentry>
@@ -40,7 +40,7 @@
      <term><parameter>arrays</parameter></term>
      <listitem>
       <para>
-       Gli array con cui confrontare
+       Arrays to compare against
       </para>
      </listitem>
     </varlistentry>
@@ -158,7 +158,7 @@ Array
 (
     [0] => 0
     [1] => 1
-    )
+)
 ]]>
     </screen>
    </example>
