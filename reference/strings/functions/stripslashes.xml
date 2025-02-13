@@ -84,21 +84,21 @@ function stripslashes_deep($value)
     $value = is_array($value) ?
                 array_map('stripslashes_deep', $value) :
                 stripslashes($value);
- 
+
     return $value;
 }
 
 // Esempio
 $array = array("f\\'oo", "b\\'ar", array("fo\\'o", "b\\'ar"));
 $array = stripslashes_deep($array);
- 
+
 // Output
 print_r($array);
 ?>
 ]]>
-      </programlisting>
-      &example.outputs;
-      <screen>
+    </programlisting>
+    &example.outputs;
+    <screen>
 <![CDATA[
 Array
 (
@@ -109,22 +109,25 @@ Array
             [0] => fo'o
             [1] => b'ar
         )
- 
+
 )
 ]]>
-      </screen>
-     </example>
-    </para>
-    <para>
-     Per maggiori dettagli su "magic quotes", vedere <function>get_magic_quotes_gpc</function>.
-    </para>
-    <simpara>
-     Vedere anche <function>addslashes</function> e
-     <function>get_magic_quotes_gpc</function>.
-    </simpara>
-   </refsect1>
-  </refentry>
+    </screen>
+   </example>
+  </para>
+ </refsect1>
 
+ <refsect1 role="seealso">
+  &reftitle.seealso;
+  <para>
+   <simplelist>
+    <member><function>addslashes</function></member>
+    <member><function>get_magic_quotes_gpc</function></member>
+   </simplelist>
+  </para>
+ </refsect1>
+
+</refentry>
 <!-- Keep this comment at the end of the file
 Local variables:
 mode: sgml
