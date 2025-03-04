@@ -370,6 +370,23 @@ linkend="language.types.boolean">Booleans</link> per maggiori
 informazioni. Usare <link linkend="language.operators.comparison">l&apos;operatore ===
 </link> per controllare il valore restituito da questa 
 funzione.</simpara></warning>'>
+
+<!-- Standard -->
+<!ENTITY standard.changelog.calling-on-objects '<row xmlns="http://docbook.org/ns/docbook">
+ <entry>8.1.0</entry>
+ <entry>
+  La chiamata di questa funzione da parte degli &object; è deprecata.
+  Bisogna prima convertire &object; in un &array; usando <function>get_mangled_object_vars</function>, oppure usare i metodi
+  forniti da una classe che implementa <interfacename>Iterator</interfacename>, come <classname>ArrayIterator</classname>.
+ </entry>
+</row>
+<row xmlns="http://docbook.org/ns/docbook">
+ <entry>7.4.0</entry>
+ <entry>
+  Le istanze delle classi <link xmlns="http://docbook.org/ns/docbook" linkend="book.spl">SPL</link> vengono ora trattate come oggetti vuoti privi di proprietà, anziché chiamare il metodo <interfacename>Iterator</interfacename> con lo stesso nome di questa funzione.
+ </entry>
+</row>
+'>
  
 <!-- OpenSSL -->
 <!ENTITY openssl.param.x509 '<varlistentry xmlns="http://docbook.org/ns/docbook">
