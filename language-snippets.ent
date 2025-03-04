@@ -376,7 +376,7 @@ funzione.</simpara></warning>'>
  <entry>8.1.0</entry>
  <entry>
   La chiamata di questa funzione da parte degli &object; è deprecata.
-  Bisogna prima convertire &object; in un &array; usando <function>get_mangled_object_vars</function>, oppure usare i metodi
+  Bisogna prima convertire l'&object; in un &array; usando <function>get_mangled_object_vars</function>, oppure usare i metodi
   forniti da una classe che implementa <interfacename>Iterator</interfacename>, come <classname>ArrayIterator</classname>.
  </entry>
 </row>
