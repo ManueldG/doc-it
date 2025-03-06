@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- $Revision$ -->
-<!-- EN-Revision: ab6785b01ce1006e3a9761988575289f40c9b678 Maintainer: ManueldG Status: ready -->
+<!-- EN-Revision: f0ed705e1ac34fed4c92979f63bee74c382f991b Maintainer: ManueldG Status: ready -->
+<!-- Reviewed: no -->
 <!-- splitted from ./index.xml, last change in rev 1.66 -->
 
 
@@ -73,24 +74,26 @@ exec ($evil_var);
   regole, non si garantisce la sicurezza del sistema, ma si può contribuire a
   migliorarlo. 
  </para>
- <para><!--tradotto da sistemare-->
-  Migliora la sicurezza disabilitando le apposite impostazioni per nascondere
+ <para>
+  Migliorare la sicurezza disabilitando le impostazioni utili per nascondere
   l'origine dei dati, la validità o l'integrità dell'input. La creazione di variabili implicite e
   l'input incontrollato può portare a vulnerabilità come attacchi di injection e
   manipolazione dei dati.
  </para>
  <para>
   Funzionalità come <literal>register_globals</literal> e
-  <literal>magic_quotes</literal> (entrambi rimossi in PHP 5.4.0) una volta contribuito
-  a questi rischi creando automaticamente variabili dall'input dell'utente e
-  sfuggire ai dati in modo incoerente. Sebbene non sia più in PHP, persistono rischi simili
+  <literal>magic_quotes</literal> (entrambi rimossi in PHP 5.4.0) hanno contribuito
+  ad agevolare questi rischi creando automaticamente variabili dall'input dell'utente e
+  escape dai dati in modo incoerente. Sebbene non sia più in PHP, persistono rischi simili
   se la gestione dell'input è gestita in modo errato.
  </para>
  <para>
-  Abilita <link linkend="function.error-reporting">error_reporting(E_ALL)</link> per
-  aiutano a rilevare le variabili non inizializzate e a convalidare l'input. Utilizza tipi rigorosi
+  
+
+  Abilitare <link linkend="function.error-reporting">error_reporting(E_ALL)</link>
+  aiutano a rilevare le variabili non inizializzate e a convalidare l'input. Utilizzare la modalità strict
   (<link linkend="language.types.declarations.strict">dichiarare(strict_types=1)</link>,
-  introdotto in PHP 7) per garantire la sicurezza dei tipi, prevenire conversioni di tipo involontarie,
+  introdotto in PHP 7) per garantire la sicurezza dei tipi, prevenire conversioni involontarie,
   e migliorare la sicurezza generale.
  </para> 
 </chapter>
