@@ -66,23 +66,33 @@ exec ($evil_var);
    </listitem>
   </itemizedlist>
  </para>
- <para>
+ <para>  
   Ponendosi queste domande durante la scrittura dello script,
   piuttosto che farsele dopo, si previene una difficile riscrittura quando
   invece si ha bisogno di migliorarne la sicurezza. Iniziando a usare queste
   regole, non si garantisce la sicurezza del sistema, ma si può contribuire a
-  migliorarlo.
+  migliorarlo. 
+ </para>
+ <para><!--tradotto da sistemare-->
+  Migliora la sicurezza disabilitando le apposite impostazioni per nascondere
+  l'origine dei dati, la validità o l'integrità dell'input. La creazione di variabili implicite e
+  l'input incontrollato può portare a vulnerabilità come attacchi di injection e
+  manipolazione dei dati.
  </para>
  <para>
-  Si potrebbe anche voler disattivare register_globals,
-  magic_quotes o altre impostazioni utili che potrebbero 
-  renderne meno chiare la validità, la fonte o il valore
-  di una determinata variabile. Lavorare con 
-  <acronym>PHP</acronym> in modalità error_reporting(E_ALL) può 
-  anche aiutare ad informare sulle variabili utilizzate prima che vengano 
-  controllate o inizializzate (in modo da impedire che vengano utilizzati
-  dati insoliti).
+  Funzionalità come <literal>register_globals</literal> e
+  <literal>magic_quotes</literal> (entrambi rimossi in PHP 5.4.0) una volta contribuito
+  a questi rischi creando automaticamente variabili dall'input dell'utente e
+  sfuggire ai dati in modo incoerente. Sebbene non sia più in PHP, persistono rischi simili
+  se la gestione dell'input è gestita in modo errato.
  </para>
+ <para>
+  Abilita <link linkend="function.error-reporting">error_reporting(E_ALL)</link> per
+  aiutano a rilevare le variabili non inizializzate e a convalidare l'input. Utilizza tipi rigorosi
+  (<link linkend="lingual.types.declarations.strict">dichiarare(strict_types=1)</link>,
+  introdotto in PHP 7) per garantire la sicurezza dei tipi, prevenire conversioni di tipo involontarie,
+  e migliorare la sicurezza generale.
+ </para> 
 </chapter>
 
 <!-- Keep this comment at the end of the file
