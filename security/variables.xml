@@ -89,7 +89,7 @@ exec ($evil_var);
  <para>
   Abilita <link linkend="function.error-reporting">error_reporting(E_ALL)</link> per
   aiutano a rilevare le variabili non inizializzate e a convalidare l'input. Utilizza tipi rigorosi
-  (<link linkend="lingual.types.declarations.strict">dichiarare(strict_types=1)</link>,
+  (<link linkend="language.types.declarations.strict">dichiarare(strict_types=1)</link>,
   introdotto in PHP 7) per garantire la sicurezza dei tipi, prevenire conversioni di tipo involontarie,
   e migliorare la sicurezza generale.
  </para> 
