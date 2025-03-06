@@ -84,15 +84,13 @@ exec ($evil_var);
   Funzionalità come <literal>register_globals</literal> e
   <literal>magic_quotes</literal> (entrambi rimossi in PHP 5.4.0) hanno contribuito
   ad agevolare questi rischi creando automaticamente variabili dall'input dell'utente e
-  escape dai dati in modo incoerente. Sebbene non sia più in PHP, persistono rischi simili
+  escape dai dati in modo incoerente. Sebbene queste funzioni non siano più in PHP, persistono rischi simili
   se la gestione dell'input è gestita in modo errato.
  </para>
  <para>
-  
-
   Abilitare <link linkend="function.error-reporting">error_reporting(E_ALL)</link>
-  aiutano a rilevare le variabili non inizializzate e a convalidare l'input. Utilizzare la modalità strict
-  (<link linkend="language.types.declarations.strict">dichiarare(strict_types=1)</link>,
+  aiuta a rilevare le variabili non inizializzate e a convalidare l'input. Utilizzare la modalità strict
+  (<link linkend="language.types.declarations.strict">declare(strict_types=1)</link>,
   introdotto in PHP 7) per garantire la sicurezza dei tipi, prevenire conversioni involontarie,
   e migliorare la sicurezza generale.
  </para> 
