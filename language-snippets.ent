@@ -928,6 +928,7 @@ Le costanti qui elencate sono sempre disponibili in quanto parte del core di PHP
 </simpara>'>
 
 <!-- Used in reference/$extname/classes.xml -->
+<<<<<<< Updated upstream
 <!ENTITY extension.classes '<simpara xmlns="http://docbook.org/ns/docbook">
 Queste classi sono definite da questa estensione, e
 sono disponibili solo quando l&apos;estensione è stata
@@ -946,6 +947,53 @@ Utilizzare attributi specifici di mysql con il driver postgres può portare a
 risultati imprevedibili. <function>PDO::getAttribute</function> può essere usata per
 ottenere l&apos;attributo <constant>PDO_ATTR_DRIVER_NAME</constant> per identificare il
 driver, se il codice può funzionare con driver differenti.</simpara>'>
+=======
+<!ENTITY extension.classes '
+ <simpara xmlns="http://docbook.org/ns/docbook">
+  Le classi qui sotto sono definite da questa estensione
+  e saranno disponibili solo quando l&apos;estensione è stata 
+  compilata in PHP o caricata dinamicamente a runtime.
+ </simpara>
+'>
+
+<!-- PDO entities -->
+<!ENTITY pdo.driver-constants '
+ <simpara xmlns="http://docbook.org/ns/docbook">  
+  Le costanti elencate di seguito sono definite da questo driver 
+  e saranno disponibili solo quando l&apos;estensione è stata compilata 
+  in PHP o caricata dinamicamente a runtime. Inoltre, queste costanti 
+  specifiche del driver dovrebbero essere utilizzate solo se si sta utilizzando
+  questo driver. L&apos;utilizzo di attributi specifici del driver con un 
+  altro driver potrebbe causare comportamenti imprevisti. 
+  <function>PDO::getAttribute</function> può essere utilizzato per ottenere
+  l&apos;attributo <constant>PDO::ATTR_DRIVER_NAME</constant> per verificare il 
+  driver, se il codice può essere eseguito con più driver.
+ </simpara>
+'>
+
+<!ENTITY pdo.errors.exception-not-errmode '
+ <note xmlns="http://docbook.org/ns/docbook">
+   <simpara xmlns="http://docbook.org/ns/docbook">
+    Genera un&apos;eccezione anche quando l&apos;attributo <constant>PDO::ATTR_ERRMODE</constant> 
+    non è impostato su <constant>PDO::ERRMODE_EXCEPTION</constant>.
+   </simpara>  
+ </note>
+'><!--XXX tradotto da controllare-->
+
+<!-- PDO errors -->
+
+<!ENTITY pdo.errors '
+ <para xmlns="http://docbook.org/ns/docbook">
+  Genera un errore di livello <constant>E_WARNING</constant> se l&apos;attributo <constant>PDO::ATTR_ERRMODE</constant> 
+  è impostato a <constant>PDO::ERRMODE_WARNING</constant>.
+ </para>
+
+ <para xmlns="http://docbook.org/ns/docbook">
+  Lancia un <classname>PDOException</classname> se l&apos;attributo <constant>PDO::ATTR_ERRMODE</constant> è impostato a 
+  <constant>PDO::ERRMODE_EXCEPTION</constant>.
+ </para>
+'>
+>>>>>>> Stashed changes
 
 <!-- PECL entities -->
 <!ENTITY pecl.moved 'Questa estensione <link xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="&url.pecl;">PECL</link>
